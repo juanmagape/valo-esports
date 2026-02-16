@@ -1,0 +1,41 @@
+.teamDetails {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.teamInfo {
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.iconTeam {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.upcomingMatches {
+    margin-top: 20px;
+}
+
+.players,
+.staff {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.staff img, .players img {
+    width: 90px;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+}

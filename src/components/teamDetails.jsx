@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import '../styles/teamdetails.css'
 
 function TeamDetails() {
     const { id } = useParams()
@@ -31,15 +32,20 @@ function TeamDetails() {
     }
 
 return (
-    <div>
-        {team?.info && (
-            <>
-                <img src={team.info.logo} alt={team.info.name} width={150} />
-                <h1>{team.info.name}</h1>
-                <p>{team.info.tag}</p>
-            </>
-        )}
+    <div className="teamDetails">
+        <div className="teamInfo">
+            {team?.info && (
+                <>
+                    <img src={team.info.logo} alt={team.info.name} className="iconTeam"/>
+                    <h1>{team.info.name}</h1>
+                    <p>{team.info.tag}</p>
+                </>
+            )}
+        </div>
 
+
+        <div className="upcomingMatch">
+        
         {team?.upcoming?.map((match, index) => (
             <div key={match.match.id || index}>
                 <h3>{match.event.name}</h3>
@@ -55,6 +61,7 @@ return (
                 </a>
             </div>
         ))}
+        </div>
 
 
         {team?.events?.slice(0,10)
@@ -66,22 +73,36 @@ return (
             </div>
         ))}
 
+        <h2>Players</h2>
+        <div className="players">
         {team?.players?.length > 0 && (
             <>
-                <h2>Players</h2>
-                <ul>
                     {team.players.map(player => (
-                        <li key={player.id}>
+                        <div key={player.id}>
                             <a href={player.url} target="_blank" rel="noreferrer">
                                 <img src={player.img} alt="" />
                                 {player.user}
                                 {player.name}
                             </a>
-                        </li>
+                        </div>
                     ))}
-                </ul>
             </>
         )}
+        </div>
+        
+        <h2>Staff</h2>
+
+        <div className="staff">
+        {team?.staff.map(staff => (
+            <div key={staff.id}>
+                <a href={staff.url} target="_blank" rel="noreferrer">
+                <img src={staff.img} alt="" referrerPolicy="no-referrer"/>
+                {staff.name}
+                {staff.tag}
+                </a>
+            </div>
+        ))}
+        </div>
     </div>
 )
 
