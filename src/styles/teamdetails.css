@@ -44,10 +44,25 @@
     flex-direction: column;
 }
 
-.upcomingMatch {
-    margin-top: 20px;
-    padding: 20px;
+.upcomingMatches {
+    background-color: white;
+    padding: 15px;
     margin-bottom: 20px;
+}
+
+.upcomingMatches h2 {
+    background-color: white;
+    margin: 0 0 10px 0;
+    padding: 0;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 0.5px;
+}
+
+.matchScore.upcoming {
+    background-color: #6b7280;
 }
 
 .recentResults {
@@ -87,6 +102,9 @@
     background-color: #fafafa;
 }
 
+.matchResult:hover .matchScore.upcoming {
+    background-color: #6b7280;
+}
 .matchLeft {
     display: flex;
     align-items: center;

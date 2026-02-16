@@ -45,21 +45,46 @@ return (
             )}
         </div>
 
-        <div className="upcomingMatch">
-        {team?.upcoming?.map((match, index) => (
-            <div key={match.match.id || index}>
-                <h3>{match.event.name}</h3>
-                <p>
-                    {match.teams[0]?.tag} vs {match.teams[1]?.tag}
-                </p>
-                <p>{match.utc}</p>
-                <a href={match.match.url} target="_blank" rel="noreferrer">
-                    View Match
-                </a>
+        {team?.upcoming && team.upcoming.length > 0 && (
+            <div className="upcomingMatches">
+                <h2>UPCOMING MATCHES</h2>
+                {team.upcoming.map((match, index) => (
+                    <a href={match.match.url} target="_blank" rel="noreferrer" key={match.match.id || index} className="matchResult">
+                        <div className="matchLeft">
+                            <img src={match.event.logo} alt="" className="eventLogo" />
+                            <div className="eventInfo">
+                                <div className="eventName">{match.event.name}</div>
+                                <div className="eventStage">{match.event.stage}</div>
+                            </div>
+                        </div>
+                        
+                        <div className="matchCenter">
+                            <div className="matchTeamInfo">
+                                <span className="teamName">{match.teams[0]?.name}</span>
+                                <span className="teamTag">#{match.teams[0]?.tag}</span>
+                            </div>
+                            <img src={match.teams[0]?.logo} alt="" className="teamLogo" />
+                            
+                            <div className="matchScore upcoming">
+                                TBD
+                            </div>
+                            
+                            <img src={match.teams[1]?.logo} alt="" className="teamLogo" />
+                            <div className="matchTeamInfo">
+                                <span className="teamName">{match.teams[1]?.name}</span>
+                                <span className="teamTag">#{match.teams[1]?.tag}</span>
+                            </div>
+                        </div>
+                        
+                        <div className="matchDate">
+                            <div>{match.date}</div>
+                            <div className="matchTime">{match.time || match.utc}</div>
+                        </div>
+                    </a>
+                ))}
             </div>
-        ))}
-        </div>
-
+        )}
+        
         <div className="recentResults">
             <h2>RECENT RESULTS</h2>
             {team?.results?.slice(0,10)
