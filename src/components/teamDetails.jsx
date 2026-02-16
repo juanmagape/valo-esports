@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import '../styles/teamdetails.css'
+import { BlinkBlur } from 'react-loading-indicators'
+import '../styles/global.css'
 
 function TeamDetails() {
     const { id } = useParams()
@@ -28,7 +30,11 @@ function TeamDetails() {
     , [id])
     
     if (loading) {
-        return <h1>Loading...</h1>
+        return (
+            <div className="loading">
+                <BlinkBlur color={["#990002", "#cc0003", "#ff0004", "#ff3336"]} />
+            </div>
+        )
     }
 
 return (
@@ -84,7 +90,7 @@ return (
                 ))}
             </div>
         )}
-        
+
         <div className="recentResults">
             <h2>RECENT RESULTS</h2>
             {team?.results?.slice(0,10)

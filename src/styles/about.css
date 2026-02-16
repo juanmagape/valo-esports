@@ -1,0 +1,87 @@
+.aboutContainer {
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.aboutContent {
+    background-color: white;
+    padding: 40px;
+}
+
+.aboutTitle {
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
+    margin: 0 0 30px 0;
+    background-color: white;
+}
+
+.aboutSection {
+    margin-bottom: 30px;
+    background-color: white;
+}
+
+.aboutSubtitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000;
+    margin: 0 0 15px 0;
+    background-color: white;
+}
+
+.aboutDescription {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    background-color: white;
+}
+
+.featuresList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+}
+
+.featuresList li {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #333;
+    padding-left: 20px;
+    position: relative;
+    background-color: white;
+}
+
+.featuresList li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #ff0004;
+    font-weight: bold;
+}
+
+.aboutLink {
+    color: #ff0004;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.aboutLink:hover {
+    text-decoration: underline;
+}
+
+.disclaimer {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-left: 3px solid #999;
+}
+
+.disclaimerText {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+    background-color: transparent;
+}

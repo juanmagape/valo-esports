@@ -5,3 +5,11 @@
     background-color: rgb(228, 228, 228);
     font-family: 'Inter', sans-serif;
 }
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    width: 100%;
+}

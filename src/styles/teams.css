@@ -1,0 +1,108 @@
+.teamsContainer {
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.regionsFilter {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.regionsFilter h2 {
+    background-color: white;
+    margin: 0 0 15px 0;
+    padding: 0;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 0.5px;
+}
+
+.regionButtons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    background-color: white;
+}
+
+.regionButtons button {
+    padding: 8px 16px;
+    background-color: #f5f5f5;
+    border: none;
+    font-size: 12px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+}
+
+.regionButtons button:hover {
+    background-color: #e5e5e5;
+}
+
+.regionButtons button.active {
+    background-color: #ff0004;
+    color: white;
+}
+
+.teamsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.teamCard {
+    background-color: white;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teamCard:hover {
+    background-color: #f5f5f5;
+}
+
+.teamCard:hover * {
+    background-color: #f5f5f5;
+}
+
+.teamCardLogo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    background-color: white;
+}
+
+.teamCardInfo {
+    text-align: center;
+    width: 100%;
+    background-color: white;
+}
+
+.teamCardName {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    margin: 0 0 5px 0;
+    background-color: white;
+}
+
+.teamCardCountry {
+    font-size: 12px;
+    color: #999;
+    margin: 0;
+    background-color: white;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: #666;
+}

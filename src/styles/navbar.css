@@ -1,0 +1,49 @@
+.navbar {
+    background-color: white;
+    border-bottom: 1px solid #e5e5e5;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbarContainer {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+
+.navbarTitle {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+    text-decoration: none;
+    background-color: white;
+    transition: color 0.2s;
+}
+
+.navbarTitle:hover {
+    color: #16a34a;
+}
+
+.navbarLinks {
+    display: flex;
+    gap: 25px;
+    background-color: white;
+}
+
+.navbarLinks a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    text-decoration: none;
+    background-color: white;
+    transition: color 0.2s;
+}
+
+.navbarLinks a:hover {
+    color: #ff0004;
+}

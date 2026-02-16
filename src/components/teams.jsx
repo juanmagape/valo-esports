@@ -1,69 +1,81 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { BlinkBlur } from 'react-loading-indicators'
+import '../styles/teams.css'
 
 function Teams() {
     const [teams, setTeams] = useState([])    
-    const [region, setRegion] = useState('all')
+    const [region, setRegion] = useState('eu')
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-
         async function fetchTeams() {
-
-        try {
-            setLoading(true)
-
-            const response = await fetch(`https://vlr.orlandomm.net/api/v1/teams?region=${region}`)
-            const data = await response.json();
-            console.log(data)
-            setTeams(data.data)
-        } catch (error) {
-            console.error('Error fetching teams:', error)
-        } finally {
-            setLoading(false)
-        }}
+            try {
+                setLoading(true)
+                const response = await fetch(`https://vlr.orlandomm.net/api/v1/teams?region=${region}`)
+                const data = await response.json();
+                console.log(data)
+                setTeams(data.data)
+            } catch (error) {
+                console.error('Error fetching teams:', error)
+            } finally {
+                setLoading(false)
+            }
+        }
         fetchTeams()
     }, [region])
 
+if (loading) {
+    return (
+        <div className="loading">
+            <BlinkBlur color={["#990002", "#cc0003", "#ff0004", "#ff3336"]} />
+        </div>
+    )
+}
 
-    if (loading) {
-        return <h1>Loading...</h1>
-    }
+    const regions = [
+        { value: 'eu', label: 'Europe' },
+        { value: 'na', label: 'North America' },
+        { value: 'br', label: 'Brazil' },
+        { value: 'ap', label: 'APAC' },
+        { value: 'kr', label: 'Korea' },
+        { value: 'ch', label: 'China' },
+        { value: 'jp', label: 'Japan' },
+        { value: 'lan', label: 'LAN' },
+        { value: 'las', label: 'LAS' },
+        { value: 'oce', label: 'Oceania' },
+        { value: 'gc', label: 'Game Changers' }
+    ]
 
     return (
-        <>
-        <div>
-            <button onClick={() => setRegion('eu')}>Europe</button>
-            <button onClick={() => setRegion('na')}>North America</button>
-            <button onClick={() => setRegion('br')}>Brasil</button>
-
-            <button onClick={() => setRegion('ap')}>APAC</button>
-            <button onClick={() => setRegion('kr')}>Korea</button>
-            <button onClick={() => setRegion('ch')}>China</button>
-
-            <button onClick={() => setRegion('jp')}>Japan</button>
-            <button onClick={() => setRegion('lan')}>LAN</button>
-            <button onClick={() => setRegion('las')}>LAS</button>
-
-            <button onClick={() => setRegion('oce')}>Ocea</button>
-            <button onClick={() => setRegion('gc')}>GC</button>
-        </div>
-
-
-
-        <div>
-            {teams.map(team => (
-                <div key={team.id}>
-                    <img src={team.img} alt="" />
-                    <h1>{team.name}</h1>
-                    <p>{team.country}</p>
-
-                    <Link to={`/teams/${team.id}`}>View Details</Link>
+        <div className="teamsContainer">
+            <div className="regionsFilter">
+                <h2>REGIONS</h2>
+                <div className="regionButtons">
+                    {regions.map(r => (
+                        <button 
+                            key={r.value}
+                            onClick={() => setRegion(r.value)}
+                            className={region === r.value ? 'active' : ''}
+                        >
+                            {r.label}
+                        </button>
+                    ))}
                 </div>
-            ))}
-        </div>
-        </>
+            </div>
 
+            <div className="teamsGrid">
+                {teams.map(team => (
+                    <Link to={`/teams/${team.id}`} key={team.id} className="teamCard">
+                        <img src={team.img} alt={team.name} className="teamCardLogo" />
+                        <div className="teamCardInfo">
+                            <h3 className="teamCardName">{team.name}</h3>
+                            <p className="teamCardCountry">{team.country}</p>
+                        </div>
+                    </Link>
+                ))}
+            </div>
+        </div>
     )
 }
 
