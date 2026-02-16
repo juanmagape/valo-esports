@@ -37,8 +37,10 @@ return (
             {team?.info && (
                 <>
                     <img src={team.info.logo} alt={team.info.name} className="iconTeam"/>
-                    <h1>{team.info.name}</h1>
-                    <p>{team.info.tag}</p>
+                    <div className="teamInfoText">
+                        <h1>{team.info.name}</h1>
+                        <p>{team.info.tag}</p>
+                    </div>
                 </>
             )}
         </div>
@@ -57,7 +59,8 @@ return (
             </div>
         ))}
         </div>
-
+        
+        <div className="recentEvents">
         {team?.events?.slice(0,10)
         .map(event => (
             <div key={event.id}>
@@ -66,6 +69,7 @@ return (
                 <p>{event.results[0]}</p>
             </div>
         ))}
+        </div>
         
         <div className="roster">
             <h2>Players</h2>

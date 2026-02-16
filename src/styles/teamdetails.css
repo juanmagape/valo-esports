@@ -1,31 +1,47 @@
 .teamDetails {
     padding: 20px;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
 }
 
 .teamInfo {
     display: flex;
     margin-bottom: 30px;
-    align-items: center;
+    align-items: flex-start;
     gap: 20px;
     background-color: white;
     padding: 20px;
 }
 
-.teamInfo h1, .teamInfo p {
+.teamInfo h1 {
     background-color: white;
     margin: 0;
-    padding: 10px 0;
+    padding: 0;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.teamInfo p {
+    background-color: white;
+    margin: 5px 0 0 0;
+    padding: 0;
+    font-size: 24px;
+    color: #999;
+    font-weight: 400;
 }
 
 .iconTeam {
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     object-fit: contain;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    padding: 10px;
+    margin: 0;
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+}
+
+.teamInfoText {
+    display: flex;
+    flex-direction: column;
 }
 
 .upcomingMatch {
@@ -38,6 +54,7 @@
     margin-top: 20px;
     background-color: white;
     padding: 20px;
+    float: left;
 }
 
 .roster h2 {
@@ -48,6 +65,29 @@
     font-weight: 600;
     text-transform: uppercase;
     color: #666;
+}
+
+
+.recentEvents {
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    float: right;
+}
+
+.recentEvents h2 {
+    background-color: white;
+    margin-top: 20px;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #666;
+}
+
+.recentEvents p {
+    background-color: white;
+    color: #888888;
 }
 
 .players,
