@@ -67,7 +67,7 @@ if (loading) {
             <div className="teamsGrid">
                 {teams.map(team => (
                     <Link to={`/teams/${team.id}`} key={team.id} className="teamCard">
-                        <img src={team.img} alt={team.name} className="teamCardLogo" />
+                        <img src={team.img} alt={team.name} className="teamCardLogo" referrerPolicy="no-referrer" />
                         <div className="teamCardInfo">
                             <h3 className="teamCardName">{team.name}</h3>
                             <p className="teamCardCountry">{team.country}</p>

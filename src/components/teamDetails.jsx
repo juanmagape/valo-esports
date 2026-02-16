@@ -42,7 +42,7 @@ return (
         <div className="teamInfo">
             {team?.info && (
                 <>
-                    <img src={team.info.logo} alt={team.info.name} className="iconTeam"/>
+                    <img src={team.info.logo} alt={team.info.name} className="iconTeam" referrerPolicy="no-referrer" />
                     <div className="teamInfoText">
                         <h1>{team.info.name}</h1>
                         <p>{team.info.tag}</p>
@@ -57,7 +57,7 @@ return (
                 {team.upcoming.map((match, index) => (
                     <a href={match.match.url} target="_blank" rel="noreferrer" key={match.match.id || index} className="matchResult">
                         <div className="matchLeft">
-                            <img src={match.event.logo} alt="" className="eventLogo" />
+                            <img src={match.event.logo} alt="" className="eventLogo" referrerPolicy="no-referrer" />
                             <div className="eventInfo">
                                 <div className="eventName">{match.event.name}</div>
                                 <div className="eventStage">{match.event.stage}</div>
@@ -69,13 +69,13 @@ return (
                                 <span className="teamName">{match.teams[0]?.name}</span>
                                 <span className="teamTag">#{match.teams[0]?.tag}</span>
                             </div>
-                            <img src={match.teams[0]?.logo} alt="" className="teamLogo" />
+                            <img src={match.teams[0]?.logo} alt="" className="teamLogo" referrerPolicy="no-referrer" />
                             
                             <div className="matchScore upcoming">
                                 TBD
                             </div>
                             
-                            <img src={match.teams[1]?.logo} alt="" className="teamLogo" />
+                            <img src={match.teams[1]?.logo} alt="" className="teamLogo" referrerPolicy="no-referrer" />
                             <div className="matchTeamInfo">
                                 <span className="teamName">{match.teams[1]?.name}</span>
                                 <span className="teamTag">#{match.teams[1]?.tag}</span>
@@ -100,7 +100,7 @@ return (
                 return (
                     <a href={result.match.url} target="_blank" rel="noreferrer" key={result.id} className="matchResult">
                         <div className="matchLeft">
-                            <img src={result.event.logo} alt="" className="eventLogo" />
+                            <img src={result.event.logo} alt="" className="eventLogo" referrerPolicy="no-referrer" />
                             <div className="eventInfo">
                                 <div className="eventName">{result.event.name}</div>
                                 <div className="eventStage">{result.event.stage}</div>
@@ -112,13 +112,13 @@ return (
                                 <span className="teamName">{result.teams[0].name}</span>
                                 <span className="teamTag">#{result.teams[0].tag}</span>
                             </div>
-                            <img src={result.teams[0].logo} alt="" className="teamLogo" />
+                            <img src={result.teams[0].logo} alt="" className="teamLogo" referrerPolicy="no-referrer"/>
                             
                             <div className={`matchScore ${isWin ? 'win' : 'loss'}`}>
                                 {result.teams[0].points} : {result.teams[1].points}
                             </div>
                             
-                            <img src={result.teams[1].logo} alt="" className="teamLogo" />
+                            <img src={result.teams[1].logo} alt="" className="teamLogo" referrerPolicy="no-referrer"/>
                             <div className="matchTeamInfo">
                                 <span className="teamName">{result.teams[1].name}</span>
                                 <span className="teamTag">#{result.teams[1].tag}</span>
@@ -153,7 +153,7 @@ return (
                     {team.players.map(player => (
                         <div key={player.id} className="playerCard">
                             <a href={player.url} target="_blank" rel="noreferrer">
-                                <img src={player.img} alt="" />
+                                <img src={player.img} alt="" referrerPolicy="no-referrer"/>
                                 <div className="playerInfo">
                                     <div className="playerName">{player.user}</div>
                                     <div className="playerRealName">{player.name}</div>
