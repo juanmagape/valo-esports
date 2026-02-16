@@ -39,7 +39,7 @@ function Teams() {
 
             <button onClick={() => setRegion('ap')}>APAC</button>
             <button onClick={() => setRegion('kr')}>Korea</button>
-            <button onClick={() => setRegion('cn')}>China</button>
+            <button onClick={() => setRegion('ch')}>China</button>
 
             <button onClick={() => setRegion('jp')}>Japan</button>
             <button onClick={() => setRegion('lan')}>LAN</button>
