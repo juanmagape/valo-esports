@@ -60,23 +60,47 @@ return (
         ))}
         </div>
 
-        <div>
-        {team?.results?.slice(0,10)
-        .map(result => (
-            <div key={result.id}>
-                <h2>{result.event.name}</h2>
-                <p>{result.year}</p>
-
-                <a href={result.match.url} target="_blank" rel="noreferrer">
-                    <p> {result.teams[0].name} </p> 
-                    <img src={result.teams[0].logo} alt="" />
-                    <p>{result.teams[0].points} : {result.teams[1].points}</p>
-                    <img src={result.teams[1].logo} alt="" />
-                    <p>{result.teams[1].name}</p>
-                </a>
-                  
-            </div>
-        ))}
+        <div className="recentResults">
+            <h2>RECENT RESULTS</h2>
+            {team?.results?.slice(0,10)
+            .map(result => {
+                const isWin = result.teams[0].points > result.teams[1].points;
+                
+                return (
+                    <a href={result.match.url} target="_blank" rel="noreferrer" key={result.id} className="matchResult">
+                        <div className="matchLeft">
+                            <img src={result.event.logo} alt="" className="eventLogo" />
+                            <div className="eventInfo">
+                                <div className="eventName">{result.event.name}</div>
+                                <div className="eventStage">{result.event.stage}</div>
+                            </div>
+                        </div>
+                        
+                        <div className="matchCenter">
+                            <div className="matchTeamInfo">
+                                <span className="teamName">{result.teams[0].name}</span>
+                                <span className="teamTag">#{result.teams[0].tag}</span>
+                            </div>
+                            <img src={result.teams[0].logo} alt="" className="teamLogo" />
+                            
+                            <div className={`matchScore ${isWin ? 'win' : 'loss'}`}>
+                                {result.teams[0].points} : {result.teams[1].points}
+                            </div>
+                            
+                            <img src={result.teams[1].logo} alt="" className="teamLogo" />
+                            <div className="matchTeamInfo">
+                                <span className="teamName">{result.teams[1].name}</span>
+                                <span className="teamTag">#{result.teams[1].tag}</span>
+                            </div>
+                        </div>
+                        
+                        <div className="matchDate">
+                            <div>{result.date}</div>
+                            <div className="matchTime">{result.time}</div>
+                        </div>
+                    </a>
+                );
+            })}
         </div>
         
         <div className="recentEvents">
