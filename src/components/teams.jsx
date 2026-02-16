@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BlinkBlur } from 'react-loading-indicators'
 import '../styles/teams.css'
+import { getProxiedImage } from '../utils/imageProxy'
 
 function Teams() {
     const [teams, setTeams] = useState([])    
@@ -67,7 +68,7 @@ if (loading) {
             <div className="teamsGrid">
                 {teams.map(team => (
                     <Link to={`/teams/${team.id}`} key={team.id} className="teamCard">
-                        <img src={team.img} alt={team.name} className="teamCardLogo" referrerPolicy="no-referrer" />
+                        <img src={getProxiedImage(team.img)} alt={team.name} className="teamCardLogo" />
                         <div className="teamCardInfo">
                             <h3 className="teamCardName">{team.name}</h3>
                             <p className="teamCardCountry">{team.country}</p>
