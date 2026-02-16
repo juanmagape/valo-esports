@@ -59,6 +59,25 @@ return (
             </div>
         ))}
         </div>
+
+        <div>
+        {team?.results?.slice(0,10)
+        .map(result => (
+            <div key={result.id}>
+                <h2>{result.event.name}</h2>
+                <p>{result.year}</p>
+
+                <a href={result.match.url} target="_blank" rel="noreferrer">
+                    <p> {result.teams[0].name} </p> 
+                    <img src={result.teams[0].logo} alt="" />
+                    <p>{result.teams[0].points} : {result.teams[1].points}</p>
+                    <img src={result.teams[1].logo} alt="" />
+                    <p>{result.teams[1].name}</p>
+                </a>
+                  
+            </div>
+        ))}
+        </div>
         
         <div className="recentEvents">
         {team?.events?.slice(0,10)
