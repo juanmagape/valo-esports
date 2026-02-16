@@ -9,7 +9,14 @@
     margin-bottom: 30px;
     align-items: center;
     gap: 20px;
+    background-color: white;
+    padding: 20px;
+}
 
+.teamInfo h1, .teamInfo p {
+    background-color: white;
+    margin: 0;
+    padding: 10px 0;
 }
 
 .iconTeam {
@@ -21,21 +28,84 @@
     padding: 10px;
 }
 
-.upcomingMatches {
+.upcomingMatch {
     margin-top: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.roster {
+    margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+}
+
+.roster h2 {
+    background-color: white;
+    margin: 20px 0 15px 0;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #666;
 }
 
 .players,
 .staff {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    background-color: white;
+    padding: 0;
+    margin-top: 10px;
 }
 
-.staff img, .players img {
-    width: 90px;
+.playerCard a,
+.staffCard a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+    padding: 10px;
+    background-color: white;
+}
+
+.playerCard:hover,
+.playerCard:hover *:not(img),
+.staffCard:hover,
+.staffCard:hover *:not(img) {
+    background-color: #dddddd;
+}
+
+.players img,
+.staff img {
+    width: 50px;
+    height: 50px;
     object-fit: cover;
-    margin-right: 10px;
-    border: 1px solid #ccc;
+    flex-shrink: 0;
+    background-color: #d3d3d3;
+}
+
+.playerInfo,
+.staffInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background-color: white;
+}
+
+.playerName,
+.staffName {
+    font-weight: 600;
+    font-size: 18px;
+    color: #000;
+    background-color: white;
+}
+
+.playerRealName,
+.staffRole {
+    font-size: 12px;
+    color: #666;
+    background-color: white;
 }

@@ -1,10 +1,9 @@
-import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Teams from './components/teams.jsx'
 import TeamDetails from './components/teamDetails.jsx'
+import './styles/global.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>

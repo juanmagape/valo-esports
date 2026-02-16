@@ -43,26 +43,20 @@ return (
             )}
         </div>
 
-
         <div className="upcomingMatch">
-        
         {team?.upcoming?.map((match, index) => (
             <div key={match.match.id || index}>
                 <h3>{match.event.name}</h3>
-
                 <p>
                     {match.teams[0]?.tag} vs {match.teams[1]?.tag}
                 </p>
-
                 <p>{match.utc}</p>
-
                 <a href={match.match.url} target="_blank" rel="noreferrer">
                     View Match
                 </a>
             </div>
         ))}
         </div>
-
 
         {team?.events?.slice(0,10)
         .map(event => (
@@ -72,36 +66,45 @@ return (
                 <p>{event.results[0]}</p>
             </div>
         ))}
-
-        <h2>Players</h2>
-        <div className="players">
-        {team?.players?.length > 0 && (
-            <>
+        
+        <div className="roster">
+            <h2>Players</h2>
+            <div className="players">
+            {team?.players?.length > 0 && (
+                <>
                     {team.players.map(player => (
-                        <div key={player.id}>
+                        <div key={player.id} className="playerCard">
                             <a href={player.url} target="_blank" rel="noreferrer">
                                 <img src={player.img} alt="" />
-                                {player.user}
-                                {player.name}
+                                <div className="playerInfo">
+                                    <div className="playerName">{player.user}</div>
+                                    <div className="playerRealName">{player.name}</div>
+                                </div>
                             </a>
                         </div>
                     ))}
-            </>
-        )}
-        </div>
-        
-        <h2>Staff</h2>
-
-        <div className="staff">
-        {team?.staff.map(staff => (
-            <div key={staff.id}>
-                <a href={staff.url} target="_blank" rel="noreferrer">
-                <img src={staff.img} alt="" referrerPolicy="no-referrer"/>
-                {staff.name}
-                {staff.tag}
-                </a>
+                </>
+            )}
             </div>
-        ))}
+        
+            <h2>Staff</h2>
+            <div className="staff">
+            {team?.staff.map(staff => (
+                <div key={staff.id} className="staffCard">
+                    <a href={staff.url} target="_blank" rel="noreferrer">
+                        <img src={staff.img} alt="" referrerPolicy="no-referrer"
+                          onError={(e) => {
+                            e.target.onerror = null
+                            e.target.src = "/default-avatar.png"}}
+                        />
+                        <div className="staffInfo">
+                            <div className="staffName">{staff.name}</div>
+                            <div className="staffRole">{staff.tag}</div>
+                        </div>
+                    </a>
+                </div>
+            ))}
+            </div>
         </div>
     </div>
 )
