@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function Teams() {
     const [teams, setTeams] = useState([])    
@@ -46,7 +47,6 @@ function Teams() {
 
             <button onClick={() => setRegion('oce')}>Ocea</button>
             <button onClick={() => setRegion('gc')}>GC</button>
-
         </div>
 
 
@@ -57,6 +57,8 @@ function Teams() {
                     <img src={team.img} alt="" />
                     <h1>{team.name}</h1>
                     <p>{team.country}</p>
+
+                    <Link to={`/teams/${team.id}`}>View Details</Link>
                 </div>
             ))}
         </div>
