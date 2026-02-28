@@ -16,6 +16,8 @@ A web application dedicated to tracking competitive Valorant esports. This proje
 - **Player Profiles**: Access player details and images directly from team pages.
 - **Responsive Design**: Built with clean, modular CSS for a smooth user experience.
 
+<video controls src="videoexample.mp4" title="Title" controls="controls" muted="muted" width="50%"></video>
+
 ## 🛠️ Technology Stack
 
 - **Frontend Framework**: [React](https://react.dev/)
